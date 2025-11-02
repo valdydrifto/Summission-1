@@ -48,7 +48,7 @@ filtered_day = day_df[(day_df['yr'].replace({0: 2011, 1: 2012}).isin(year_filter
 # ==========================
 # EDA: Tren Tahunan & Bulanan
 # ==========================
-st.subheader("📊 Pertumbuhan Rata-rata Harian Penyewaan Sepeda")
+st.subheader("📊 Berapa besar persentase pertumbuhan rata-rata harian penyewaan sepeda dari tahun 2011 ke 2012, dan bagaimana tren bulanan tersebut berubah ?")
 
 avg_per_year = filtered_day.groupby('yr', observed=True)['cnt'].mean().reset_index()
 avg_per_year['yr'] = avg_per_year['yr'].replace({0: 2011, 1: 2012})
@@ -77,7 +77,7 @@ st.pyplot(plt)
 # ==========================
 # Analisis Jam Puncak
 # ==========================
-st.subheader("⏰ Jam Puncak Penyewaan (Casual vs Registered)")
+st.subheader("⏰ Kapan jam-jam puncak penyewaan sepeda untuk pengguna terdaftar (Registered) dan tidak terdaftar (Casual), dan bagaimana persentase kontribusi masing-masing pada jam sibuk harian?")
 
 hourly_usage = (
     hour_df.groupby('hr')[['casual', 'registered', 'cnt']]
